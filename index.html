@@ -39,12 +39,27 @@
 
 
         .bg {
+            position: relative;
             font-family: "Inter", Arial, Helvetica, sans-serif;
             color: var(--text);
             background-image: url("orange-county-2.png");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            overflow: hidden;
+        }
+
+        .bg::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(93, 93, 93, 0.08);
+            z-index: 0;
+        }
+
+        .bg>* {
+            position: relative;
+            z-index: 1;
         }
 
         a {
@@ -83,7 +98,10 @@
             letter-spacing: 0.035em;
             text-align: center;
             color: white;
-            background: #ee9436;
+            background: linear-gradient(135deg,
+                    #123d6b 0%,
+                    #355f8a 35%,
+                    #e51b2d 100%);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
@@ -111,6 +129,11 @@
 
         .underline {
             text-decoration: underline;
+        }
+
+        .disclaimer-link:hover {
+            color: #0000ee;
+            opacity: 0.9;
         }
 
         @media screen and (max-width: 550px) {
@@ -150,12 +173,18 @@
             </div>
 
             <div class="row justify-content-center">
-                <div class="col-auto">
+                <div class="col-xl-4 col-lg-6 col-auto">
                     <div class="disclaimer">
-                        <a href="https://takecaliforniabackvictoryfund.com">Paid for by Take California Back Victory
-                            Fund
-                            (takecaliforniabackvictoryfund.com)<br>
-                            and not authorized by any candidate or candidate’s committee</a>
+                        Paid for by Take California Back Victory
+                        Fund and not authorized by any candidate or candidate’s committee
+                        and not authorized by any candidate or candidates commitee
+
+
+                        <a class="disclaimer-link"
+                            href="https://takecaliforniabackvictoryfund.com">(https://takecaliforniabackvictoryfund.com)</a>,
+                        34366 Yucaipa Blvd. Ste C -250, Yucaipa,
+                        CA
+                        92399
                     </div>
                 </div>
             </div>
